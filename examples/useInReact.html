@@ -1,0 +1,46 @@
+<html>
+	<head>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.min.js"></script>
+		<script src="../dist/vue-webcomponent.umd.js"></script>
+	</head>
+	<body>
+		<div id="root"></div>
+		<script>
+			class App extends React.Component {
+				constructor(props) {
+					super(props);
+					this.state = {
+						list: [],
+						newItem: null
+					};
+				}
+				listenVueComponentEvent (newItem) {
+					this.setState({
+						newItem: 'Listen Vue event from React, new item added: ' + newItem
+					});
+				}
+				componentDidMount () {
+					const methods = {
+						listenInput: this.listenVueComponentEvent.bind(this)
+					};
+					window.vueWc.render(document.querySelector("#render-list"), {}, methods);
+				}
+				render() {
+					return (
+						React.createElement('div', {}, [
+							React.createElement('h2', {}, "Vue component"),
+							React.createElement('wv-todo-list', { id: 'render-list', 'v-on:item-added': 'listenInput'}),
+							React.createElement('h2', {}, "React param"),
+							React.createElement('span', {}, this.state.newItem)
+						])
+					);
+				}
+			}
+			ReactDOM.render(
+				React.createElement(App),
+				document.querySelector('#root')
+			);
+		</script>
+	</body>
+</html>

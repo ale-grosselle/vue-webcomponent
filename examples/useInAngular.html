@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.9/angular.min.js"></script>
+		<script src="../dist/vue-webcomponent.umd.js"></script>
+	</head>
+	<body>
+		<div ng-app="app">
+			<div ng-controller="ParentController as parent">
+				<h1>Vue component:</h1>
+				<wv-todo-list id="render-list" @item-added="listenInput"></wv-todo-list>
+				<h1>Angular app:</h1>
+				{{ somePrimitive }}
+			</div>
+		</div>
+		<script>
+			function ParentController($scope) {
+				$scope.somePrimitive = 100;
+				$scope.updateValues = function(newItem) {
+					$scope.$applyAsync(function() {
+						$scope.somePrimitive = 'Listen Vue event from Angular, new item added: ' + newItem;
+					});
+				};
+				const vueComponentMethod = {
+					listenInput: $scope.updateValues.bind($scope)
+				};
+				window.vueWc.render(document.querySelector("#render-list"),undefined, vueComponentMethod);
+			}
+			angular.module('app', []).controller('ParentController', ParentController);
+			const app = angular.module('myApp', []);
+		</script>
+	</body>
+</html>

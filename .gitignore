@@ -1,0 +1,12 @@
+.idea
+node_modules
+workspace.xml
+npm-debug.log
+build/dev-server.json
+dist
+coverage
+testCoverage
+toDelete
+docs/api.md
+__image_snapshots__
+test-report.html

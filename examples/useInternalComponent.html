@@ -1,0 +1,15 @@
+<html>
+	<head>
+		<script src="../dist/vue-webcomponent.umd.js"></script>
+	</head>
+	<body>
+		<!-- use it: -->
+		<wv-todo-list id="render-list"></wv-todo-list>
+		<script>
+			window.params = {
+				input: ""
+			};
+			window.instance = window.vueWc.render(document.querySelector("#render-list"), window.params);
+		</script>
+	</body>
+</html>

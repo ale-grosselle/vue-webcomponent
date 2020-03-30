@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<script src="../dist/vue-webcomponent.umd.js"></script>
+	</head>
+	<body>
+		<!-- define template: -->
+		<template id="todo-list">
+			<span>Write a text:</span>
+			<input type="text" v-model="input">
+			<h1>{{input}}</h1>
+		</template>
+
+		<!-- use it: -->
+		<wv-todo-list id="render-list"></wv-todo-list>
+		<script>
+			window.params = {
+				input: ""
+			};
+			window.vueWc.define(document.querySelector("#todo-list"));
+			window.instance = window.vueWc.render(document.querySelector("#render-list"), window.params);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,61 @@
+{
+	"name": "vue-webcomponent",
+	"author": "Alessandro Grosselle",
+	"version": "0.0.1",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ale-grosselle/vue-webcomponent"
+	},
+	"licenses": [
+		{
+			"type": "MIT",
+			"url": "https://github.com/ale-grosselle/vue-webcomponent/blob/master/LICENSE"
+		}
+	],
+	"dependencies": {
+		"vue": "2.6.11"
+	},
+	"module": "dist/vue-webcomponent.esm.js",
+	"browser": "dist/vue-webcomponent.umd.js",
+	"directories": {},
+	"engines": {
+		"node": ">= 4.0.0",
+		"npm": ">= 3.0.0"
+	},
+	"scripts": {
+		"lint": "eslint --ext .js src",
+		"lint-fix": "eslint --ext .js,.vue src --fix",
+		"dev": "nodemon --exec 'npm run build:umd' --watch src -e vue,js",
+		"build": "npm run build:es && npm run build:umd",
+		"build:es": "rollup --config build/rollup.config.es.js",
+		"build:umd": "rollup --config build/rollup.config.umd.js",
+		"prepublishOnly": "node build/prepublishOnly.js"
+	},
+	"devDependencies": {
+		"@babel/core": "7.9.0",
+		"@babel/preset-env": "7.9.0",
+		"babel-core": "7.0.0-beta.3",
+		"babel-eslint": "10.1.0",
+		"eslint": "6.8.0",
+		"eslint-config-standard": "14.1.1",
+		"eslint-plugin-import": "2.20.2",
+		"eslint-plugin-node": "11.1.0",
+		"eslint-plugin-promise": "4.2.1",
+		"eslint-plugin-standard": "4.0.1",
+		"eslint-plugin-vue": "6.2.2",
+		"rollup": "2.2.0",
+		"nodemon": "2.0.2",
+		"rollup-plugin-babel": "4.4.0",
+		"rollup-plugin-commonjs": "10.1.0",
+		"rollup-plugin-node-resolve": "5.2.0",
+		"rollup-plugin-replace": "2.2.0",
+		"rollup-plugin-require-context": "1.0.0",
+		"rollup-plugin-terser": "5.3.0",
+		"rollup-plugin-vue": "5.1.6",
+		"rollup-plugin-includepaths": "0.2.3",
+		"vue-template-compiler": "2.6.11"
+	},
+	"files": [
+		"dist"
+	]
+}
