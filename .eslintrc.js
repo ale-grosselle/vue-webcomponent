@@ -7,7 +7,7 @@ module.exports = {
 	env: {
 		browser: true
 	},
-	extends: ["standard", "vue"],
+	extends: ["standard", "plugin:vue/recommended"],
 	// add your custom rules here
 	rules: {
 		'indent': [1, 'tab'],

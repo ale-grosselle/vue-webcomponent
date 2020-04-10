@@ -24,13 +24,13 @@
 					const methods = {
 						listenInput: this.listenVueComponentEvent.bind(this)
 					};
-					window.vueWc.render(document.querySelector("#render-list"), {}, methods);
+					window.vComponents.embed(document.querySelector("#embed-list"), {}, methods);
 				}
 				render() {
 					return (
 						React.createElement('div', {}, [
 							React.createElement('h2', {}, "Vue component"),
-							React.createElement('wv-todo-list', { id: 'render-list', 'v-on:item-added': 'listenInput'}),
+							React.createElement('wv-todo-list', { id: 'embed-list', 'v-on:item-added': 'listenInput'}),
 							React.createElement('h2', {}, "React param"),
 							React.createElement('span', {}, this.state.newItem)
 						])

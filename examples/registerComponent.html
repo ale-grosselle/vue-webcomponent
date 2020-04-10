@@ -11,13 +11,13 @@
 		</template>
 
 		<!-- use it: -->
-		<wv-todo-list id="render-list"></wv-todo-list>
+		<wv-todo-list id="embed-list"></wv-todo-list>
 		<script>
 			window.params = {
 				input: ""
 			};
-			window.vueWc.define(document.querySelector("#todo-list"));
-			window.instance = window.vueWc.render(document.querySelector("#render-list"), window.params);
+			window.vComponents.define(document.querySelector("#todo-list"));
+			window.instance = window.vComponents.embed(document.querySelector("#embed-list"), window.params);
 		</script>
 	</body>
 </html>

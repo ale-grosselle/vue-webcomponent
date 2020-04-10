@@ -5,7 +5,7 @@ const packageJson = require('../package.json');
 const config = Object.assign({}, base, {
 	output: {
 		exports: 'named',
-		name: 'vueWc',
+		name: 'vComponents',
 		file: packageJson.browser,
 		format: 'umd',
 	},

@@ -4,12 +4,17 @@
 	</head>
 	<body>
 		<!-- use it: -->
-		<wv-todo-list id="render-list"></wv-todo-list>
+		<wv-todo-list id="embed-list" v-on:item-added="onItemAdded"></wv-todo-list>
 		<script>
-			window.params = {
-				input: ""
+			const params = {
+				items: ["item 1", "items 2"]
 			};
-			window.instance = window.vueWc.render(document.querySelector("#render-list"), window.params);
+			const methods = {
+				onItemAdded: function (item) {
+					alert("new item added " + item);
+				}
+			};
+			window.instance = window.vComponents.embed(document.querySelector("#embed-list"), params, methods);
 		</script>
 	</body>
 </html>
