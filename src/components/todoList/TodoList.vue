@@ -24,13 +24,13 @@ export default {
 	install: function (vueInstance) {
 		vueInstance.component(name, this);
 	},
+	mixins: [mergeParentData],
 	data: function () {
 		return {
 			input: null,
 			items: []
 		};
 	},
-	mixins: [mergeParentData],
 	methods: {
 		addTodo: function (item) {
 			this.items.push(item);
